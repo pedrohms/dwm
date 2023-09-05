@@ -897,7 +897,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
 	{ MODKEY,                       XK_s,          rioresize,              {0} },
 	#endif // RIODRAW_PATCH
-	{ MODKEY,                       XK_b,          togglebar,              {0} },
+	{ MODKEY|ShiftMask,             XK_b,          togglebar,              {0} },
 	#if TOGGLETOPBAR_PATCH
 	{ MODKEY|ShiftMask,             XK_b,          toggletopbar,           {0} },
 	#endif // TOGGLETOPBAR_PATCH
