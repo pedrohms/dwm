@@ -59,7 +59,7 @@
  * the centeredwindowname patch.
  * https://dwm.suckless.org/patches/fancybar/
  */
-#define BAR_FANCYBAR_PATCH 0
+#define BAR_FANCYBAR_PATCH 1
 
 /* Being an evolution of the bartabgroups patch the flexwintitle patch specifically
  * taps into the many layout options that flextile-deluxe offers to produce a window
@@ -167,7 +167,7 @@
 /* The systray patch adds systray for the status bar.
  * https://dwm.suckless.org/patches/systray/
  */
-#define BAR_SYSTRAY_PATCH 0
+#define BAR_SYSTRAY_PATCH 1
 
 /* Show tag symbols in the bar. */
 #define BAR_TAGS_PATCH 1
@@ -485,7 +485,7 @@
  * than the original ~/.dwm folder.
  * https://dwm.suckless.org/patches/autostart/
  */
-#define AUTOSTART_PATCH 0
+#define AUTOSTART_PATCH 1
 
 /* By default, windows that are not visible when requesting a resize/move will not
  * get resized/moved. With this patch, they will.

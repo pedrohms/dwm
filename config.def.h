@@ -1,8 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-#define AUTOSTART_PATCH 1
-#define BAR_SYSTRAY_PATCH 1
-#define BAR_FANCYBAR_PATCH 1
-#define BAR_DWMBLOCKS_PATCH 1
+
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
 static const unsigned int borderpx       = 0;   /* border pixel of windows */
