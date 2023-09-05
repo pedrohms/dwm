@@ -28,10 +28,21 @@ static int tagindicatortype              = INDICATOR_TOP_LEFT_SQUARE;
 static int tiledindicatortype            = INDICATOR_NONE;
 static int floatindicatortype            = INDICATOR_TOP_LEFT_SQUARE;
 
+#if NAMETAG_PATCH
+static char tagicons[][NUMTAGS][MAX_TAGLEN] =
+#else
+static char *tagicons[][NUMTAGS] =
+#endif // NAMETAG_PATCH
+{
+	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
+	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
+	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
+};
 
 //MONOCLE_LAYOUT
 static void (*bartabmonfns[])(Monitor *) = { monocle /* , customlayoutfn */ };
 
+static char c000000[]                    = "#000000"; // placeholder value
 
 static char normfgcolor[]                = "#bbbbbb";
 static char normbgcolor[]                = "#222222";
@@ -104,7 +115,7 @@ static char *colors[][ColCount] = {
 
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "alacritty", "--class", "spterm", NULL};
-#elif SCRATCHPADS_PATCH
+#endif //RENAMED_SCRATCHPADS_PATCH
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -225,7 +236,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/env", "sh", "-c", cmd, NULL } }
 
 /* commands */
+#if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+#endif // NODMENU_PATCH
 static const char *dmenucmd[]  = { "$HOME/.local/bin/dm-run", NULL };
 static const char *dmrun[]     = { "$HOME/.local/bin/dm-run", NULL };
 static const char *dmoffload[] = { "$HOME/dm-offload"       , NULL };
@@ -370,3 +383,49 @@ static const Button buttons[] = {
 	#endif // TAB_PATCH
 };
 
+static const BarRule barrules[] = {
+	/* monitor   bar    alignment         widthfunc                 drawfunc                clickfunc                hoverfunc                name */
+	#if BAR_STATUSBUTTON_PATCH
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_stbutton,           draw_stbutton,          click_stbutton,          NULL,                    "statusbutton" },
+	#endif // BAR_STATUSBUTTON_PATCH
+	#if BAR_POWERLINE_TAGS_PATCH
+	{  0,        0,     BAR_ALIGN_LEFT,   width_pwrl_tags,          draw_pwrl_tags,         click_pwrl_tags,         NULL,                    "powerline_tags" },
+	#endif // BAR_POWERLINE_TAGS_PATCH
+	#if BAR_TAGS_PATCH
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_tags,               draw_tags,              click_tags,              hover_tags,              "tags" },
+	#endif // BAR_TAGS_PATCH
+	#if BAR_TAGLABELS_PATCH
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_taglabels,          draw_taglabels,         click_taglabels,         NULL,                    "taglabels" },
+	#endif // BAR_TAGLABELS_PATCH
+	#if BAR_TAGGRID_PATCH
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_taggrid,            draw_taggrid,           click_taggrid,           NULL,                    "taggrid" },
+	#endif // BAR_TAGGRID_PATCH
+	#if BAR_SYSTRAY_PATCH
+	{  0,        0,     BAR_ALIGN_RIGHT,  width_systray,            draw_systray,           click_systray,           NULL,                    "systray" },
+	#endif // BAR_SYSTRAY_PATCH
+	#if BAR_LTSYMBOL_PATCH
+	{ -1,        0,     BAR_ALIGN_LEFT,   width_ltsymbol,           draw_ltsymbol,          click_ltsymbol,          NULL,                    "layout" },
+	#endif // BAR_LTSYMBOL_PATCH
+	#if XKB_PATCH
+	{  0,        0,     BAR_ALIGN_RIGHT,  width_xkb,                draw_xkb,               click_xkb,               NULL,                    "xkb" },
+	#endif // XKB_PATCH
+	#if BAR_FLEXWINTITLE_PATCH
+	{ -1,        0,     BAR_ALIGN_NONE,   width_flexwintitle,       draw_flexwintitle,      click_flexwintitle,      NULL,                    "flexwintitle" },
+	#elif BAR_TABGROUPS_PATCH
+	{ -1,        0,     BAR_ALIGN_NONE,   width_bartabgroups,       draw_bartabgroups,      click_bartabgroups,      NULL,                    "bartabgroups" },
+	#elif BAR_AWESOMEBAR_PATCH
+	{ -1,        0,     BAR_ALIGN_NONE,   width_awesomebar,         draw_awesomebar,        click_awesomebar,        NULL,                    "awesomebar" },
+	#elif BAR_FANCYBAR_PATCH
+	{ -1,        0,     BAR_ALIGN_NONE,   width_fancybar,           draw_fancybar,          click_fancybar,          NULL,                    "fancybar" },
+	#elif BAR_WINTITLE_PATCH
+	{ -1,        0,     BAR_ALIGN_NONE,   width_wintitle,           draw_wintitle,          click_wintitle,          NULL,                    "wintitle" },
+	#endif // BAR_TABGROUPS_PATCH | BAR_AWESOMEBAR_PATCH | BAR_FANCYBAR_PATCH | BAR_WINTITLE_PATCH
+	#if BAR_FLEXWINTITLE_PATCH
+	#if BAR_WINTITLE_HIDDEN_PATCH
+	{ -1,        1,  BAR_ALIGN_RIGHT_RIGHT, width_wintitle_hidden,  draw_wintitle_hidden,   click_wintitle_hidden,   NULL,                    "wintitle_hidden" },
+	#endif
+	#if BAR_WINTITLE_FLOATING_PATCH
+	{ -1,        1,     BAR_ALIGN_LEFT,   width_wintitle_floating,  draw_wintitle_floating, click_wintitle_floating, NULL,                    "wintitle_floating" },
+	#endif // BAR_WINTITLE_FLOATING_PATCH
+	#endif // BAR_FLEXWINTITLE_PATCH
+};
