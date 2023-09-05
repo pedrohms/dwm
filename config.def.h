@@ -854,24 +854,11 @@ static const char *xkb_layouts[]  = {
 #if !NODMENU_PATCH
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 #endif // NODMENU_PATCH
-static const char *dmenucmd[] = {
-	"dmenu_run",
-	#if !NODMENU_PATCH
-	"-m", dmenumon,
-	#endif // NODMENU_PATCH
-	"-fn", dmenufont,
-	"-nb", normbgcolor,
-	"-nf", normfgcolor,
-	"-sb", selbgcolor,
-	"-sf", selfgcolor,
-	#if BAR_DMENUMATCHTOP_PATCH
-	topbar ? NULL : "-b",
-	#endif // BAR_DMENUMATCHTOP_PATCH
-	NULL
-};
-static const char *termcmd[]  = { "alacritty", "-e", "tmux", NULL };
-static const char *dmrun[]    = { "$HOME/.local/bin/dm-run", NULL };
-static const char *dmoffload[]    = { "$HOME/.local/bin/dm-offload", NULL };
+
+static const char *dmenucmd[]  = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-run", NULL };
+static const char *dmrun[]     = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-run", NULL };
+static const char *termcmd[]   = { "alacritty", "-e", "tmux", NULL };
+static const char *dmoffload[] = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-offload", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
