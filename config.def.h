@@ -162,9 +162,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "monospace 10";
 #else
-static const char *fonts[]               = { "MesloLGS Nerd Font Mono:size=16" };
+static const char *fonts[]               = { "MesloLGS Nerd Font Mono:size=12" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "MesloLGS Nerd Font Mono:size=16";
+static const char dmenufont[]            = "MesloLGS Nerd Font Mono:size=12";
 
 static char c000000[]                    = "#000000"; // placeholder value
 
