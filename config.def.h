@@ -1091,13 +1091,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Escape,     togglenomodbuttons,     {0} },
 	#endif // NO_MOD_BUTTONS_PATCH
 	#if RENAMED_SCRATCHPADS_PATCH
-	{ MODKEY,                       XK_grave,      togglescratch,          {.v = scratchpadcmd } },
-	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.v = scratchpadcmd } },
-	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_bracketright,      togglescratch,          {.v = scratchpadcmd } },
+	{ MODKEY|ControlMask,           XK_bracketright,      setscratch,             {.v = scratchpadcmd } },
+	{ MODKEY|ShiftMask,             XK_bracketright,      removescratch,          {.v = scratchpadcmd } },
 	#elif SCRATCHPADS_PATCH
-	{ MODKEY,                       XK_grave,      togglescratch,          {.ui = 0 } },
-	{ MODKEY|ControlMask,           XK_grave,      setscratch,             {.ui = 0 } },
-	{ MODKEY|ShiftMask,             XK_grave,      removescratch,          {.ui = 0 } },
+	{ MODKEY,                       XK_bracketright,      togglescratch,          {.ui = 0 } },
+	{ MODKEY|ControlMask,           XK_bracketright,      setscratch,             {.ui = 0 } },
+	{ MODKEY|ShiftMask,             XK_bracketright,      removescratch,          {.ui = 0 } },
 	#endif // SCRATCHPADS_PATCH | RENAMED_SCRATCHPADS_PATCH
 	#if UNFLOATVISIBLE_PATCH
 	{ MODKEY|Mod4Mask,              XK_space,      unfloatvisible,         {0} },
