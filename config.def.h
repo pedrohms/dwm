@@ -859,6 +859,7 @@ static const char *dmenucmd[]  = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin
 static const char *dmrun[]     = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-run", NULL };
 static const char *termcmd[]   = { "alacritty", "-e", "tmux", NULL };
 static const char *dmoffload[] = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-offload", NULL };
+static const char *dmlogout[]     = { "/usr/bin/env", "sh", "-c", "$HOME/.local/bin/dm-logout", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1044,7 +1045,7 @@ static const Key keys[] = {
 	#if SELFRESTART_PATCH
 	{ MODKEY|ShiftMask,             XK_r,          self_restart,           {0} },
 	#endif // SELFRESTART_PATCH
-	{ MODKEY|ShiftMask,             XK_q,          quit,                   {0} },
+	{ MODKEY|ShiftMask,             XK_q,          spawn,                  {.v = dmlogout   } },
 	#if RESTARTSIG_PATCH
 	{ MODKEY|ControlMask|ShiftMask, XK_q,          quit,                   {1} },
 	#endif // RESTARTSIG_PATCH
