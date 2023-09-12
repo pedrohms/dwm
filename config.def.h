@@ -409,7 +409,7 @@ static const char *const autostart[] = {
 #if RENAMED_SCRATCHPADS_PATCH
 static const char *scratchpadcmd[] = {"s", "alacritty", "--class", "spterm", NULL};
 #elif SCRATCHPADS_PATCH
-const char *spcmd1[] = {"alacritty", "--class", "spterm", NULL };
+const char *spcmd1[] = {"alacritty", "--class", "spterm", "-o" , "window.dimensions.lines=28" , "-o" , "window.dimensions.columns=95" , NULL };
 static Sp scratchpads[] = {
    /* name          cmd  */
    {"spterm",      spcmd1},
