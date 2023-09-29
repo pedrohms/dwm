@@ -108,7 +108,7 @@
 /* This patch turns the titlebar area into a mfact-respecting tabbar showing each client's title.
  * https://dwm.suckless.org/patches/bartabgroups/
  */
-#define BAR_TABGROUPS_PATCH 1
+#define BAR_TABGROUPS_PATCH 0
 
 /* This patch adds an option to place tags in rows like in many other window managers.
  * https://dwm.suckless.org/patches/taggrid/
@@ -290,7 +290,7 @@
  * modules.
  * https://dwm.suckless.org/patches/centeredwindowname/
  */
-#define BAR_CENTEREDWINDOWNAME_PATCH 0
+#define BAR_CENTEREDWINDOWNAME_PATCH 1
 
 /* Draws a dot indicator overlayed on each tag icon for each client. The selected client
  * is drawn as a larger horizontal line.
