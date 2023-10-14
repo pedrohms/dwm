@@ -555,7 +555,7 @@
 /* The cyclelayouts patch lets you cycle through all your layouts.
  * https://dwm.suckless.org/patches/cyclelayouts/
  */
-#define CYCLELAYOUTS_PATCH 0
+#define CYCLELAYOUTS_PATCH 1
 
 /* Make dwm respect _MOTIF_WM_HINTS property, and not draw borders around windows requesting
  * for it. Some applications use this property to notify window managers to not draw window
@@ -612,7 +612,7 @@
  * This patch takes precedence over the fakefullscreen client patch below.
  * https://dwm.suckless.org/patches/fakefullscreen/
  */
-#define FAKEFULLSCREEN_PATCH 0
+#define FAKEFULLSCREEN_PATCH 1
 
 /* Similarly to the fakefullscreen patch this patch only allows clients to "fullscreen" into
  * the space currently given to them.
@@ -878,7 +878,7 @@
  * monitor (default).
  * https://dwm.suckless.org/patches/pertag/
  */
-#define PERTAG_PATCH 0
+#define PERTAG_PATCH 1
 
 /* Option to enable gaps on a per tag basis rather than globally.
  * Depends on both pertag and vanitygaps patches being enabled.
