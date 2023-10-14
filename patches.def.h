@@ -448,7 +448,7 @@
  * This patch interferes with the center transient windows patches.
  * https://dwm.suckless.org/patches/alwayscenter/
  */
-#define ALWAYSCENTER_PATCH 0
+#define ALWAYSCENTER_PATCH 1
 
 /* This patch allows windows to be resized with its aspect ratio remaining constant.
  * https://dwm.suckless.org/patches/aspectresize/
@@ -466,7 +466,7 @@
  * This patch takes precedence over ATTACHBELOW_PATCH.
  * https://dwm.suckless.org/patches/attachaside/
  */
-#define ATTACHASIDE_PATCH 0
+#define ATTACHASIDE_PATCH 1
 
 /* This patch adds new clients below the selected client.
  * This patch takes precedence over ATTACHBOTTOM_PATCH.
@@ -789,7 +789,7 @@
 /* This patch allows you to move clients around in the stack and swap them with the master.
  * https://dwm.suckless.org/patches/movestack/
  */
-#define MOVESTACK_PATCH 0
+#define MOVESTACK_PATCH 1
 
 /* This patch allows you to change the names of tags during runtime.
  *
