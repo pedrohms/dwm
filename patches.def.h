@@ -1307,7 +1307,7 @@
  * Optionally also applies a layout.
  * https://dwm.suckless.org/patches/unfloatvisible/
  */
-#define UNFLOATVISIBLE_PATCH 0
+#define UNFLOATVISIBLE_PATCH 1
 
 /* This patch adds a client rule that allows for windows that do not specify the override-redirect
  * to not be managed by the window manager. This can be useful for external bars, widgets,
